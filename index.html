@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT คืออะไร</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+           background-image: url('pic/bg2.jpg');
+            color: white;
+            height: 300px; /* กำหนดความสูงของส่วนหัว */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        header a {
+            background-color: #ff9900;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        header a:hover {
+            background-color: #e68a00;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .button-box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .button-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .text {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .highlight {
+            color: #0066CC;
+        }
+
+        .content-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            margin: 20px 0;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #232f3e;
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        footer {
+            background-color: #232f3e;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-container {
+            width: 300px;
+            height: 200px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+
+        .text-container {
+            max-width: 300px;
+        }
+
+        .text-container h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .text-container p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .about-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.about-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.team-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: gray;
+}
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header a {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button-box {
+                margin-bottom: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- ส่วนหัว -->
+<header>
+    <h1>Smart-Farm-IOT</h1>
+    <a href="https://youtu.be/dQw4w9WgXcQ?si=wqmDSa3mCZ3MU6xe">Click</a>
+</header>
+
+<!-- Container สำหรับปุ่มกล่อง -->
+<div class="button-container">
+    <a href="https://github.com/13D4C/Physical-Com-Project" class="button-box">
+        <div class="icon">
+            <img src="pic/CodeICON.jfif" alt="Code Icon" width="100" height="100">
+        </div>
+        <div class="text"><span class="highlight">Source Code</span></div>
+    </a>
+    <a href="https://youtu.be/HZvsMBICwJU" class="button-box">
+        <div class="icon">
+            <img src="pic/video-icon-flat-12.jpg" alt="Code Icon" width="100" height="100">
+        </div>
+        <div class="text"><span class="highlight">Video</span></div>
+    </a>
+    <a href="https://drive.google.com/drive/folders/109kE18EVbn5vAp8vX7fndc4JzFJfVqHY?usp=sharing" class="button-box">
+        <div class="icon">
+            <img src="pic/OIP.jfif" alt="Code Icon" width="100" height="100">
+        </div>
+        <div class="text"><span class="highlight">Poster</span></div>
+    </a>
+</div>
+
+<!-- Container สำหรับกล่องสี่เหลี่ยมผืนผ้า (เนื้อหา) -->
+<div class="content-container">
+
+    <div class="section">
+        <h2>บทคัดย่อ </h2>
+        <p>โครงงานนี้มีวัตถุประสงค์หลักคือการพัฒนาฟาร์มอัจฉริยะด้วยเทคโนโลยี IoT ที่ทำงานแบบอัตโนมัติ เพื่อเพิ่มประสิทธิภาพในการเกษตรและการจัดการทรัพยากรอย่างยั่งยืน โดยระบบจะสามารถตรวจสอบและควบคุมสภาพแวดล้อมของฟาร์ม เช่น การให้น้ำ และการตรวจสอบอุณหภูมิแบบเรียลไทม์ การใช้งานฟาร์มอัจฉริยะนี้จะช่วยให้เกษตรกรลดภาระงานที่ต้องทำด้วยตนเองและเพิ่มผลผลิตได้อย่างมีประสิทธิภาพ นอกจากนี้ยังช่วยลดการใช้ทรัพยากรและค่าใช้จ่ายในการผลิต</p>
+    </div>
+
+    <div class="section">
+        <h2>ที่มาและความสำคัญ (Background)</h2>
+        <p>“ฟาร์มอัจฉริยะ” หมายถึง ระบบการเกษตรที่ใช้เทคโนโลยี IoT เพื่อเพิ่มประสิทธิภาพในการผลิตและจัดการทรัพยากร โดยมีการใช้เซนเซอร์และอุปกรณ์อัตโนมัติเพื่อตรวจสอบสภาพแวดล้อม เช่น อุณหภูมิ ความชื้น และสภาพดิน การใช้เทคโนโลยีนี้ช่วยให้เกษตรกรสามารถควบคุมการให้น้ำ ปุ๋ย และการดูแลพืชได้อย่างมีประสิทธิภาพ ซึ่งเป็นการลดความเสี่ยงจากการเปลี่ยนแปลงของสภาพอากาศและโรคพืช
+
+            ในปัจจุบัน ฟาร์มหลายแห่งในประเทศไทยยังขาดการจัดการที่เหมาะสม ทำให้ผลผลิตต่ำและใช้ทรัพยากรอย่างไม่ยั่งยืน ดังนั้น คณะผู้จัดทำโครงการจึงมีความคิดที่จะพัฒนาฟาร์มอัจฉริยะด้วยระบบ IoT ที่ทำงานแบบอัตโนมัติ โดยใช้เซนเซอร์ต่างๆ เพื่อตรวจสอบและควบคุมการทำงานของฟาร์มแบบเรียลไทม์ ช่วยให้เกษตรกรลดภาระงานที่ต้องทำด้วยตนเอง และเพิ่มผลผลิตอย่างมีประสิทธิภาพ นอกจากนี้ ระบบยังสามารถแจ้งเตือนปัญหาต่างๆ ผ่านแอปพลิเคชัน เพื่อให้เกษตรกรสามารถตอบสนองได้อย่างรวดเร็วและทันเวลา</p>
+    </div>
+
+    <div class="section">
+        <h2>วัตถุประสงค์ของโปรเจ็ค (Object)</h2>
+        <p>1.เพื่อศึกษาการทำงานและวิธีการประกอบอุปกรณ์ Arduino ให้สามารถใช้งานได้และเป็นประโยชน์ของสังคม</p>
+        <p>2.เพื่อศึกษาวิธีการเรียนโปรแกรมควบคุม Arduino ด้วยโปรแกรมภาษาซี</p>
+    </div>
+
+</div><div class="container">
+    <h1>อุปกรณ์ที่ใช้</h1>
+    <div class="image-container">
+        <img id="changing-image" src="pic/pump.jfif" alt="Image 1">
+    </div>
+
+    <div class="text-container">
+        <h2>เกี่ยวกับอุปกรณ์</h2>
+        <p id="changing-text">Pump</p>
+    </div>
+</div>
+<div class="container">
+    <div class="image-container"><img id="image" src="pic/d816cfc7-d5c2-417e-aeeb-dc1f431a0885.jfif" alt="Image 1"></div>
+    <p id="changing-text">Project</p>
+</div>
+
+
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column; /* ใช้แนวตั้งเพื่อจัดกล่องในแนวตั้ง */
+        align-items: center; /* จัดกึ่งกลางในแนวนอน */
+        justify-content: center; /* จัดกึ่งกลางในแนวตั้ง */
+        margin: auto; /* ทำให้กล่องอยู่กลางหน้า */
+        width: 400%; /* ขนาดของกล่อง */
+        max-width: 400px; /* ขนาดสูงสุดของกล่อง */
+        padding: 20px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        background-color: #fff; /* สีพื้นหลังของกล่อง */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงา */
+        text-align: center; /* จัดข้อความให้กึ่งกลาง */
+    }
+    .container_sub {
+    margin-left: 20px; /* เพิ่มระยะห่างระหว่างกล่อง */
+}
+    .image-container {
+        width: 100%; /* ให้ภาพใช้ขนาดเต็มของกล่อง */
+        margin-bottom: 20px; /* ระยะห่างระหว่างภาพและข้อความ */
+    }
+
+    .image-container img {
+        width: 100%; /* ปรับให้ภาพมีความกว้างเต็มที่ */
+        height: auto; /* ทำให้สูงอัตโนมัติตามสัดส่วน */
+        border-radius: 10px; /* ทำให้มุมกลม */
+    }
+
+    .text-container {
+        max-width: 100%; /* ทำให้ข้อความไม่เกินขนาดกล่อง */
+    }
+</style>
+
+<script>
+    const images = [
+        'pic/esp32.jfif',
+        'pic/fan.jfif',
+        'pic/Soil moisture.jfif',
+        'pic/light_sen.jfif',
+        'pic/temper.jfif',
+        'pic/adapter.jfif'
+    ];
+
+    const texts = [
+        'pic/ESP32',
+        'pic/Fans',
+        'pic/Soil moisture',
+        'pic/lightsenor',
+        'pic/temperature sensor',
+        'pic/adapter'
+    ];
+
+    let currentIndex = 0;
+    const imageElement = document.getElementById('changing-image');
+    const textElement = document.getElementById('changing-text');
+
+    function changeContent() {
+        currentIndex = (currentIndex + 1) % images.length;
+        imageElement.src = images[currentIndex];
+        textElement.textContent = texts[currentIndex];
+    }
+
+    setInterval(changeContent, 3000); // เปลี่ยนภาพและข้อความทุก ๆ 3 วินาที
+</script>
+<div class="about-container">
+    <h1 class="about-title">About Us</h1>
+    <div class="team-section">
+        <div class="team-member">
+            <img src="pic/guide.jpg" alt="Teerati Thanyapitaya" >
+            <h3>Teerati Thanyapitaya</h3>
+            <p>66070273</p>
+        </div>
+        <div class="team-member">
+            <img src="pic/D.jpg" alt="Atibodee Kuiprasert">
+            <h3>Atibodee Kuiprasert</h3>
+            <p>66070216</p>
+        </div>
+        <div class="team-member">
+            <img src="pic/Arucha.jpg" alt="Arucha Khematharonon ">
+            <h3>Arucha Khematharonon </h3>
+            <p>66070220</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ส่วนท้าย -->
+<footer>
+    <p>© 2024 IoT บริการของคุณ</p>
+</footer>
+
+</body>
+</html>
