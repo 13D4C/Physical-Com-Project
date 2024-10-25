@@ -15,7 +15,7 @@
         header {
            background-image: url('pic/bg2.jpg');
             color: white;
-            height: 300px; /* กำหนดความสูงของส่วนหัว */
+            height: 300px; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -222,13 +222,11 @@
 </head>
 <body>
 
-<!-- ส่วนหัว -->
 <header>
     <h1>Smart-Farm-IOT</h1>
     <a href="https://youtu.be/dQw4w9WgXcQ?si=wqmDSa3mCZ3MU6xe">Click</a>
 </header>
 
-<!-- Container สำหรับปุ่มกล่อง -->
 <div class="button-container">
     <a href="https://github.com/13D4C/Physical-Com-Project" class="button-box">
         <div class="icon">
@@ -236,7 +234,7 @@
         </div>
         <div class="text"><span class="highlight">Source Code</span></div>
     </a>
-    <a href="https://youtu.be/7dwJJh00j2M" class="button-box">
+    <a href="https://youtu.be/YgV9j6HlSj0" class="button-box">
         <div class="icon">
             <img src="pic/video-icon-flat-12.jpg" alt="Code Icon" width="100" height="100">
         </div>
@@ -250,7 +248,6 @@
     </a>
 </div>
 
-<!-- Container สำหรับกล่องสี่เหลี่ยมผืนผ้า (เนื้อหา) -->
 <div class="content-container">
 
     <div class="section">
@@ -299,35 +296,35 @@
 <style>
     .container {
         display: flex;
-        flex-direction: column; /* ใช้แนวตั้งเพื่อจัดกล่องในแนวตั้ง */
-        align-items: center; /* จัดกึ่งกลางในแนวนอน */
-        justify-content: center; /* จัดกึ่งกลางในแนวตั้ง */
-        margin: auto; /* ทำให้กล่องอยู่กลางหน้า */
-        width: 400%; /* ขนาดของกล่อง */
-        max-width: 400px; /* ขนาดสูงสุดของกล่อง */
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        margin: auto; 
+        width: 400%; 
+        max-width: 400px; 
         padding: 20px;
         border: 2px solid #ccc;
         border-radius: 10px;
-        background-color: #fff; /* สีพื้นหลังของกล่อง */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงา */
-        text-align: center; /* จัดข้อความให้กึ่งกลาง */
+        background-color: #fff; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
     }
     .container_sub {
-    margin-left: 20px; /* เพิ่มระยะห่างระหว่างกล่อง */
+    margin-left: 20px; 
 }
     .image-container {
-        width: 100%; /* ให้ภาพใช้ขนาดเต็มของกล่อง */
-        margin-bottom: 20px; /* ระยะห่างระหว่างภาพและข้อความ */
+        width: 100%;
+        margin-bottom: 20px;
     }
 
     .image-container img {
-        width: 100%; /* ปรับให้ภาพมีความกว้างเต็มที่ */
-        height: auto; /* ทำให้สูงอัตโนมัติตามสัดส่วน */
-        border-radius: 10px; /* ทำให้มุมกลม */
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
     }
 
     .text-container {
-        max-width: 100%; /* ทำให้ข้อความไม่เกินขนาดกล่อง */
+        max-width: 100%;
     }
 </style>
 
@@ -360,7 +357,7 @@
         textElement.textContent = texts[currentIndex];
     }
 
-    setInterval(changeContent, 3000); // เปลี่ยนภาพและข้อความทุก ๆ 3 วินาที
+    setInterval(changeContent, 3000);
 </script>
 <div class="about-container">
     <h1 class="about-title">About Us</h1>
@@ -384,7 +381,6 @@
 </div>
 
 
-<!-- ส่วนท้าย -->
 <footer>
     <p>© 2024 IoT บริการของคุณ</p>
 </footer>
