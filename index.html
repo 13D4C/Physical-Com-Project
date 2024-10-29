@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IoT คืออะไร</title>
     <style>
+        
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
@@ -13,35 +14,41 @@
         }
 
         header {
-           background-image: url('pic/bg2.jpg');
-            color: white;
-            height: 300px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
+    background-image: url('pic/bg2.png');
+    background-size: cover; /* ปรับภาพพื้นหลังให้พอดีกับขนาด */
+    color: white;
+    height: 300px; /* กำหนดความสูงของส่วนหัว */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* เพิ่มเงา */
+    border-bottom: 4px solid #ff9900; /* ขอบด้านล่าง */
+}
 
-        header h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
+header h1 {
+    font-size: 3em; /* ขนาดตัวอักษร */
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* เงาให้กับข้อความ */
+}
 
-        header a {
-            background-color: #ff9900;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 1.2em;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
+header a {
+    background-color: #ff9900;
+    color: white;
+    padding: 12px 24px; /* ปรับขนาดปุ่ม */
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s; /* เพิ่มเอฟเฟค */
+}
 
-        header a:hover {
-            background-color: #e68a00;
-        }
+header a:hover {
+    background-color: #e68a00;
+    transform: scale(1.05); /* ขยายขนาดปุ่มเมื่อเอาเมาส์ไปไว้ */
+}
 
         .button-container {
             display: flex;
@@ -83,18 +90,23 @@
         }
 
         .content-container {
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
 
-        .section {
-            margin: 20px 0;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+.section {
+    margin: 20px 0;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.section:hover {
+    transform: scale(1.05); /* ขยายขึ้น 5% */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
 
         h2 {
             color: #232f3e;
@@ -107,13 +119,7 @@
             color: #333;
         }
 
-        footer {
-            background-color: #232f3e;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-        }
+
         .container {
             display: flex;
             gap: 20px;
@@ -159,6 +165,21 @@
     padding: 20px;
 }
 
+.team-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* เพิ่มระยะห่างระหว่างสมาชิกในทีม */
+}
+
+.team-member {
+    transition: transform 0.5s ease; /* เพิ่ม transition เพื่อทำให้การหมุนดูนุ่มนวล */
+}
+
+.team-member:hover {
+    transform: rotate(360deg); /* หมุน 360 องศาเมื่อ mouse hover */
+}
+
+
 .about-title {
     font-size: 2rem;
     margin-bottom: 20px;
@@ -197,6 +218,20 @@
     font-size: 1rem;
     color: gray;
 }
+.equipment-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px; /* ตั้งค่าความกว้างเท่ากัน */
+    height: 400px; /* ตั้งค่าความสูงเท่ากัน */
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
 
         @media (max-width: 600px) {
             header h1 {
@@ -222,11 +257,13 @@
 </head>
 <body>
 
+<!-- ส่วนหัว -->
 <header>
     <h1>Smart-Farm-IOT</h1>
     <a href="https://youtu.be/dQw4w9WgXcQ?si=wqmDSa3mCZ3MU6xe">Click</a>
 </header>
 
+<!-- Container สำหรับปุ่มกล่อง -->
 <div class="button-container">
     <a href="https://github.com/13D4C/Physical-Com-Project" class="button-box">
         <div class="icon">
@@ -248,6 +285,7 @@
     </a>
 </div>
 
+<!-- Container สำหรับกล่องสี่เหลี่ยมผืนผ้า (เนื้อหา) -->
 <div class="content-container">
 
     <div class="section">
@@ -275,56 +313,67 @@
         <p>3.และส่งค่าอุณภูมิกับความชื้นกลับมา</p>
     </div>
 
-</div><div class="container">
-    <h1>อุปกรณ์ที่ใช้</h1>
-    <div class="image-container">
-        <img id="changing-image" src="pic/pump.jfif" alt="Image 1">
+    <div class="container-wrapper">
+        <div class="equipment-box">
+            <h1>อุปกรณ์ที่ใช้</h1>
+            <div class="image-container">
+                <img id="changing-image" src="pic/pump.jfif" alt="Image 1">
+            </div>
+            <div class="text-container">
+                <h2>เกี่ยวกับอุปกรณ์</h2>
+                <p id="changing-text">Pump</p>
+            </div>
+        </div>
+        
+        <div class="equipment-box">
+            <div class="image-container">
+                <img id="image" src="pic/d816cfc7-d5c2-417e-aeeb-dc1f431a0885.jfif" alt="Image 1">
+            </div>
+            <p id="changing-text">Project</p>
+        </div>
     </div>
-
-    <div class="text-container">
-        <h2>เกี่ยวกับอุปกรณ์</h2>
-        <p id="changing-text">Pump</p>
-    </div>
-</div>
-<div class="container">
-    <div class="image-container"><img id="image" src="pic/d816cfc7-d5c2-417e-aeeb-dc1f431a0885.jfif" alt="Image 1"></div>
-    <p id="changing-text">Project</p>
-</div>
 
 
 
 <style>
     .container {
         display: flex;
-        flex-direction: column; 
-        align-items: center; 
-        justify-content: center; 
-        margin: auto; 
-        width: 400%; 
-        max-width: 400px; 
+        flex-direction: column; /* ใช้แนวตั้งเพื่อจัดกล่องในแนวตั้ง */
+        align-items: center; /* จัดกึ่งกลางในแนวนอน */
+        justify-content: center; /* จัดกึ่งกลางในแนวตั้ง */
+        margin: auto; /* ทำให้กล่องอยู่กลางหน้า */
+        width: 400%; /* ขนาดของกล่อง */
+        max-width: 400px; /* ขนาดสูงสุดของกล่อง */
         padding: 20px;
         border: 2px solid #ccc;
         border-radius: 10px;
-        background-color: #fff; 
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        text-align: center;
+        background-color: #fff; /* สีพื้นหลังของกล่อง */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงา */
+        text-align: center; /* จัดข้อความให้กึ่งกลาง */
     }
     .container_sub {
-    margin-left: 20px; 
+    margin-left: 20px; /* เพิ่มระยะห่างระหว่างกล่อง */
+}
+.container-wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
 }
     .image-container {
-        width: 100%;
-        margin-bottom: 20px;
+        width: 100%; /* ให้ภาพใช้ขนาดเต็มของกล่อง */
+        margin-bottom: 20px; /* ระยะห่างระหว่างภาพและข้อความ */
     }
 
     .image-container img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-    }
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ปรับขนาดรูปให้พอดีกับกล่อง */
+    border-radius: 8px;
+}
 
     .text-container {
-        max-width: 100%;
+        max-width: 100%; /* ทำให้ข้อความไม่เกินขนาดกล่อง */
     }
 </style>
 
@@ -357,13 +406,13 @@
         textElement.textContent = texts[currentIndex];
     }
 
-    setInterval(changeContent, 3000);
+    setInterval(changeContent, 3000); // เปลี่ยนภาพและข้อความทุก ๆ 3 วินาที
 </script>
 <div class="about-container">
     <h1 class="about-title">About Us</h1>
     <div class="team-section">
         <div class="team-member">
-            <img src="pic/guide.jpg" alt="Teerati Thanyapitaya" >
+            <img src="pic/guide.jpg" alt="Teerati Thanyapitaya">
             <h3>Teerati Thanyapitaya</h3>
             <p>66070273</p>
         </div>
@@ -373,17 +422,11 @@
             <p>66070216</p>
         </div>
         <div class="team-member">
-            <img src="pic/Arucha.jpg" alt="Arucha Khematharonon ">
-            <h3>Arucha Khematharonon </h3>
+            <img src="pic/Arucha.jpg" alt="Arucha Khematharonon">
+            <h3>Arucha Khematharonon</h3>
             <p>66070220</p>
         </div>
     </div>
 </div>
-
-
-<footer>
-    <p>© 2024 IoT บริการของคุณ</p>
-</footer>
-
 </body>
 </html>
