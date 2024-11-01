@@ -1,6 +1,6 @@
 # Physical Computing Project 2024 - IT KMITL 🌱
 
-## Smart Farm with IoT Technology - Automated Agriculture for a Sustainable Future
+## Smart Farm with IoT Technology
 
 ### Introduction
 This project aims to revolutionize farming efficiency by developing a **smart farm** with **IoT-powered automation**. Through real-time monitoring and control of key environmental factors, like soil moisture and temperature, the system provides farmers with actionable data and automated responses, reducing manual workload and improving crop yield. Our smart farm system also helps conserve resources, ultimately reducing operational costs for a more sustainable agricultural approach.
