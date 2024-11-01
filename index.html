@@ -3,450 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IoT คืออะไร</title>
+    <title>Smart Farm IoT Project</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
         
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+        * {
+            font-family: 'Prompt', sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        header {
-    background-image: url('pic/bg2.png');
-    background-size: cover; /* ปรับภาพพื้นหลังให้พอดีกับขนาด */
-    color: white;
-    height: 300px; /* กำหนดความสูงของส่วนหัว */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* เพิ่มเงา */
-    border-bottom: 4px solid #ff9900; /* ขอบด้านล่าง */
-}
+        body {
+            background: linear-gradient(135deg, #f6f9fc 0%, #e9ecef 100%);
+            background-attachment: fixed;
+            position: relative;
+        }
 
-header h1 {
-    font-size: 3em; /* ขนาดตัวอักษร */
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* เงาให้กับข้อความ */
-}
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(62, 184, 178, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(91, 228, 155, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
 
-header a {
-    background-color: #ff9900;
-    color: white;
-    padding: 12px 24px; /* ปรับขนาดปุ่ม */
-    text-decoration: none;
-    font-size: 1.2em;
-    border-radius: 5px;
-    margin-top: 20px;
-    transition: background-color 0.3s, transform 0.2s; /* เพิ่มเอฟเฟค */
-}
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(4,9,30,0.95), rgba(4,9,30,0.8));
+            position: relative;
+            overflow: hidden;
+        }
 
-header a:hover {
-    background-color: #e68a00;
-    transform: scale(1.05); /* ขยายขนาดปุ่มเมื่อเอาเมาส์ไปไว้ */
-}
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: pulse 8s infinite;
+        }
 
-        .button-container {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px;
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.5; }
         }
 
         .button-box {
-            width: 200px;
-            height: 200px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            text-align: center;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
+            display: inline-block;
             text-decoration: none;
-            color: inherit;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .button-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
-        .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .text {
-            font-size: 16px;
-            color: #333;
-        }
-
-        .highlight {
-            color: #0066CC;
-        }
-
-        .content-container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.section {
-    margin: 20px 0;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.section:hover {
-    transform: scale(1.05); /* ขยายขึ้น 5% */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
-}
-
-        h2 {
-            color: #232f3e;
-            font-size: 1.5em;
-            margin-top: 0;
-        }
-
-        p {
-            line-height: 1.6;
-            color: #333;
-        }
-
-
-        .container {
-            display: flex;
-            gap: 20px;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .image-container {
-            width: 300px;
-            height: 200px;
-            border: 2px solid #ccc;
-            border-radius: 10px;
+        .equipment-box {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        .image-container img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 10px;
+        .equipment-box img {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .text-container {
-            max-width: 300px;
+        .equipment-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
-        .text-container h2 {
-            color: #333;
-            margin-bottom: 10px;
+        .equipment-box:hover img {
+            transform: scale(1.1);
         }
 
-        .text-container p {
-            color: #666;
-            line-height: 1.6;
-        }
-        .about-container {
-    text-align: center;
-    padding: 20px;
-}
-
-.team-section {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* เพิ่มระยะห่างระหว่างสมาชิกในทีม */
-}
-
-.team-member {
-    transition: transform 0.5s ease; /* เพิ่ม transition เพื่อทำให้การหมุนดูนุ่มนวล */
-}
-
-.team-member:hover {
-    transform: rotate(360deg); /* หมุน 360 องศาเมื่อ mouse hover */
-}
-
-
-.about-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.team-section {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.team-member {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    padding: 15px;
-    text-align: center;
-}
-
-.team-member img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-.team-member h3 {
-    margin: 10px 0;
-    font-size: 1.2rem;
-}
-
-.team-member p {
-    font-size: 1rem;
-    color: gray;
-}
-.equipment-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 300px; /* ตั้งค่าความกว้างเท่ากัน */
-    height: 400px; /* ตั้งค่าความสูงเท่ากัน */
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            header a {
-                padding: 10px 20px;
-                font-size: 0.9em;
-            }
-
-            .button-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .button-box {
-                margin-bottom: 20px;
-            }
+        .team-member {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 1rem;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
+        .team-member img {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 4px solid transparent;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .team-member:hover img {
+            transform: scale(1.1);
+            border-color: #4CAF50;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .content-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
     </style>
 </head>
-<body>
-
-<!-- ส่วนหัว -->
-<header>
-    <h1>Smart-Farm-IOT</h1>
-    <a href="https://youtu.be/dQw4w9WgXcQ?si=wqmDSa3mCZ3MU6xe">Click</a>
-</header>
-
-<!-- Container สำหรับปุ่มกล่อง -->
-<div class="button-container">
-    <a href="https://github.com/13D4C/Physical-Com-Project" class="button-box">
-        <div class="icon">
-            <img src="pic/CodeICON.jfif" alt="Code Icon" width="100" height="100">
-        </div>
-        <div class="text"><span class="highlight">Source Code</span></div>
-    </a>
-    <a href="https://youtu.be/5cPVaHq3f_Q" class="button-box">
-        <div class="icon">
-            <img src="pic/video-icon-flat-12.jpg" alt="Code Icon" width="100" height="100">
-        </div>
-        <div class="text"><span class="highlight">Video</span></div>
-    </a>
-    <a href="https://drive.google.com/drive/folders/109kE18EVbn5vAp8vX7fndc4JzFJfVqHY?usp=sharing" class="button-box">
-        <div class="icon">
-            <img src="pic/OIP.jfif" alt="Code Icon" width="100" height="100">
-        </div>
-        <div class="text"><span class="highlight">Poster</span></div>
-    </a>
-</div>
-
-<!-- Container สำหรับกล่องสี่เหลี่ยมผืนผ้า (เนื้อหา) -->
-<div class="content-container">
-
-    <div class="section">
-        <h2>บทคัดย่อ </h2>
-        <p>โครงงานนี้มีวัตถุประสงค์หลักคือการพัฒนาฟาร์มอัจฉริยะด้วยเทคโนโลยี IoT ที่ทำงานแบบอัตโนมัติ เพื่อเพิ่มประสิทธิภาพในการเกษตรและการจัดการทรัพยากรอย่างยั่งยืน โดยระบบจะสามารถตรวจสอบและควบคุมสภาพแวดล้อมของฟาร์ม เช่น การให้น้ำ และการตรวจสอบอุณหภูมิแบบเรียลไทม์ การใช้งานฟาร์มอัจฉริยะนี้จะช่วยให้เกษตรกรลดภาระงานที่ต้องทำด้วยตนเองและเพิ่มผลผลิตได้อย่างมีประสิทธิภาพ นอกจากนี้ยังช่วยลดการใช้ทรัพยากรและค่าใช้จ่ายในการผลิต</p>
-    </div>
-
-    <div class="section">
-        <h2>ที่มาและความสำคัญ (Background)</h2>
-        <p>“ฟาร์มอัจฉริยะ” หมายถึง ระบบการเกษตรที่ใช้เทคโนโลยี IoT เพื่อเพิ่มประสิทธิภาพในการผลิตและจัดการทรัพยากร โดยมีการใช้เซนเซอร์และอุปกรณ์อัตโนมัติเพื่อตรวจสอบสภาพแวดล้อม เช่น อุณหภูมิ ความชื้น และสภาพดิน การใช้เทคโนโลยีนี้ช่วยให้เกษตรกรสามารถควบคุมการให้น้ำ ปุ๋ย และการดูแลพืชได้อย่างมีประสิทธิภาพ ซึ่งเป็นการลดความเสี่ยงจากการเปลี่ยนแปลงของสภาพอากาศและโรคพืช
-
-            ในปัจจุบัน ฟาร์มหลายแห่งในประเทศไทยยังขาดการจัดการที่เหมาะสม ทำให้ผลผลิตต่ำและใช้ทรัพยากรอย่างไม่ยั่งยืน ดังนั้น คณะผู้จัดทำโครงการจึงมีความคิดที่จะพัฒนาฟาร์มอัจฉริยะด้วยระบบ IoT ที่ทำงานแบบอัตโนมัติ โดยใช้เซนเซอร์ต่างๆ เพื่อตรวจสอบและควบคุมการทำงานของฟาร์มแบบเรียลไทม์ ช่วยให้เกษตรกรลดภาระงานที่ต้องทำด้วยตนเอง และเพิ่มผลผลิตอย่างมีประสิทธิภาพ นอกจากนี้ ระบบยังสามารถแจ้งเตือนปัญหาต่างๆ ผ่านแอปพลิเคชัน เพื่อให้เกษตรกรสามารถตอบสนองได้อย่างรวดเร็วและทันเวลา</p>
-    </div>
-    <div class="section">
-        <h2>ขั้นตอนการดำเนินการ</h2>
-
-        <h2>การระบุปัญหา</h2>
-        <p>เราเริ่มต้นด้วยการศึกษาปัญหาที่พบบ่อยในการดูแลต้นไม้ โดยมุ่งเน้นไปที่การรดน้ำที่ไม่สม่ำเสมอซึ่งเกิดจากการขาดข้อมูลเกี่ยวกับระดับความชื้นในดิน ซึ่งส่งผลต่อสุขภาพของต้นไม้โดยตรง โดยเฉพาะสำหรับผู้ที่มีตารางเวลาการทำงานที่แน่นและไม่สามารถดูแลต้นไม้ได้อย่างสม่ำเสมอ</p>
+<body class="min-h-screen">
+    <!-- Hero Section -->
+    <header class="hero-gradient text-white min-h-screen flex items-center relative">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-8">Smart-Farm-IOT</h1>
             
-            <h2>การวางแผนการแก้ปัญหา</h2>
-            <p>หลังจากเข้าใจปัญหา เราวางแผนพัฒนาระบบที่ใช้บอร์ด Arduino และเซนเซอร์ตรวจวัดความชื้นในดิน โดยมีเป้าหมายในการสร้างอุปกรณ์ที่สามารถตรวจสอบความชื้นในดินได้อย่างแม่นยำ พร้อมกับแจ้งเตือนผู้ใช้เมื่อต้นไม้ต้องการน้ำ</p>
-            
-            <h2> การสร้างต้นแบบ</h2>
-            <p>ขั้นตอนต่อมา เราได้ทำการประกอบอุปกรณ์ที่จำเป็น ได้แก่ บอร์ด Arduino เซนเซอร์วัดความชื้น และอุปกรณ์อิเล็กทรอนิกส์อื่น ๆ พร้อมเชื่อมต่อและทดสอบวงจรเบื้องต้นเพื่อให้แน่ใจว่าอุปกรณ์ทำงานได้ตามที่ต้องการ</p>
-            
-            <h2>การเขียนโค้ดและการทดสอบ</h2>
-            <p>เมื่อฮาร์ดแวร์พร้อม เราเขียนโค้ดเพื่อให้ Arduino สามารถอ่านค่าความชื้นและส่งการแจ้งเตือนได้ ขั้นตอนนี้รวมถึงการปรับค่าความชื้นให้เหมาะสมกับสภาพดินและสิ่งแวดล้อมต่าง ๆ เพื่อให้ค่าที่ได้มีความเสถียรและสอดคล้องกับสภาพจริง</p>
-            
-            <h2>การแก้ไขปัญหา</h2>
-            <p>เราพบปัญหาความไวของเซนเซอร์ที่ทำให้การอ่านค่าไม่แม่นยำ เพื่อแก้ไข เราได้ปรับตำแหน่งเซนเซอร์และปรับแต่งโค้ดเพิ่มเติม จนกระทั่งได้ค่าความชื้นที่เสถียรและเชื่อถือได้</p>
-    </div>
-    <div class="section">
-        <h2>วัตถุประสงค์ของโปรเจ็ค (Object)</h2>
-        <p>1.เพื่อศึกษาการทำงานและวิธีการประกอบอุปกรณ์ Arduino ให้สามารถใช้งานได้และเป็นประโยชน์ของสังคม</p>
-        <p>2.เพื่อศึกษาวิธีการเรียนโปรแกรมควบคุม Arduino ด้วยโปรแกรมภาษาซี</p>
-    </div>
+            <!-- Button Container -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
+                <a href="https://github.com/13D4C/Physical-Com-Project" class="button-box">
+                    <div class="text-center">
+                        <img src="pic/CodeICON.jfif" alt="Code Icon" class="w-24 h-24 mx-auto mb-4 rounded-lg">
+                        <span class="text-xl font-semibold">Source Code</span>
+                    </div>
+                </a>
 
-    <div class="section">
-        <h2>หลักการทำงาน (Object)</h2>
-        <p>1.ตรวจเช็คอุณหภูมิและความชื้นในดินผ่าน temperature sensor</p>
-        <p>2.เมื่อความชื้นและอุณหภูมิที่กำหนดตัวปั้มจะดูดน้ำและปล่อยน้ำลงสู่ดินจนกว่าจะได้อุณหภูมิและความชื้นที่กำหนดถึงจะหยุดการให้น้ำ</p>
-        <p>3.เมื่อความชื้นและอุณหภูมิที่กำหนดตัวพัดลมจะทำงาน</p>
-        <p>4.และส่งค่าอุณภูมิกับความชื้นกลับมา</p>
-    </div>
+                <a href="https://youtu.be/5cPVaHq3f_Q" class="button-box">
+                    <div class="text-center">
+                        <img src="pic/video-icon-flat-12.jpg" alt="Video Icon" class="w-24 h-24 mx-auto mb-4 rounded-lg">
+                        <span class="text-xl font-semibold">Video</span>
+                    </div>
+                </a>
 
-    <div class="container-wrapper">
-        <div class="equipment-box">
-            <h1>อุปกรณ์ที่ใช้</h1>
-            <div class="image-container">
-                <img id="changing-image" src="pic/pump.jfif" alt="Image 1">
-            </div>
-            <div class="text-container">
-                <h2>เกี่ยวกับอุปกรณ์</h2>
-                <p id="changing-text">Pump</p>
+                <a href="https://drive.google.com/drive/folders/109kE18EVbn5vAp8vX7fndc4JzFJfVqHY?usp=sharing" class="button-box">
+                    <div class="text-center">
+                        <img src="pic/OIP.jfif" alt="Poster Icon" class="w-24 h-24 mx-auto mb-4 rounded-lg">
+                        <span class="text-xl font-semibold">Poster</span>
+                    </div>
+                </a>
             </div>
         </div>
-        
-        <div class="equipment-box">
-            <div class="image-container">
-                <img id="image" src="pic/d816cfc7-d5c2-417e-aeeb-dc1f431a0885.jfif" alt="Image 1">
+    </header>
+
+    <div class="container mx-auto px-6 py-16">
+        <!-- บทคัดย่อ -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800">บทคัดย่อ</h2>
+            <div class="content-box">
+                <p class="text-gray-700 leading-relaxed">
+                    โครงงานนี้มีวัตถุประสงค์หลักคือการพัฒนาฟาร์มอัจฉริยะด้วยเทคโนโลยี IoT ที่ทำงานแบบอัตโนมัติ
+                    เพื่อเพิ่มประสิทธิภาพในการเกษตรและการจัดการทรัพยากรอย่างยั่งยืน
+                    โดยระบบจะสามารถตรวจสอบและควบคุมสภาพแวดล้อมของฟาร์ม เช่น การให้น้ำ
+                    และการตรวจสอบอุณหภูมิแบบเรียลไทม์
+                    การใช้งานฟาร์มอัจฉริยะนี้จะช่วยให้เกษตรกรลดภาระงานที่ต้องทำด้วยตนเองและเพิ่มผลผลิตได้อย่างมีประสิทธิภาพ
+                    นอกจากนี้ยังช่วยลดการใช้ทรัพยากรและค่าใช้จ่ายในการผลิต
+                </p>
             </div>
-            <p id="changing-text">Project</p>
+        </section>
+
+        <!-- ที่มาและความสำคัญ -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800">ที่มาและความสำคัญ (Background)</h2>
+            <div class="content-box">
+                <p class="text-gray-700 leading-relaxed">
+                    “ฟาร์มอัจฉริยะ” หมายถึง ระบบการเกษตรที่ใช้เทคโนโลยี IoT เพื่อเพิ่มประสิทธิภาพในการผลิตและจัดการทรัพยากร โดยมีการใช้เซนเซอร์และอุปกรณ์อัตโนมัติเพื่อตรวจสอบสภาพแวดล้อม เช่น อุณหภูมิ ความชื้น และสภาพดิน การใช้เทคโนโลยีนี้ช่วยให้เกษตรกรสามารถควบคุมการให้น้ำ ปุ๋ย และการดูแลพืชได้อย่างมีประสิทธิภาพ ซึ่งเป็นการลดความเสี่ยงจากการเปลี่ยนแปลงของสภาพอากาศและโรคพืช ในปัจจุบัน ฟาร์มหลายแห่งในประเทศไทยยังขาดการจัดการที่เหมาะสม ทำให้ผลผลิตต่ำและใช้ทรัพยากรอย่างไม่ยั่งยืน ดังนั้น คณะผู้จัดทำโครงการจึงมีความคิดที่จะพัฒนาฟาร์มอัจฉริยะด้วยระบบ IoT ที่ทำงานแบบอัตโนมัติ โดยใช้เซนเซอร์ต่างๆ เพื่อตรวจสอบและควบคุมการทำงานของฟาร์มแบบเรียลไทม์ ช่วยให้เกษตรกรลดภาระงานที่ต้องทำด้วยตนเอง และเพิ่มผลผลิตอย่างมีประสิทธิภาพ นอกจากนี้ ระบบยังสามารถแจ้งเตือนปัญหาต่างๆ ผ่านแอปพลิเคชัน เพื่อให้เกษตรกรสามารถตอบสนองได้อย่างรวดเร็วและทันเวลา
+                </p>
+            </div>
+        </section>
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800">วัตถุประสงค์ของโปรเจ็ค (Object)</h2>
+            <div class="content-box">
+                <p class="text-gray-700 leading-relaxed">
+                    1.เพื่อศึกษาการทำงานและวิธีการประกอบอุปกรณ์ Arduino ให้สามารถใช้งานได้และเป็นประโยชน์ของสังคม</p>
+                    <p class="text-gray-700 leading-relaxed">
+                    2.เพื่อศึกษาวิธีการเรียนโปรแกรมควบคุม Arduino ด้วยโปรแกรมภาษาซี
+                </p>
+            </div>
+        </section>
+        <div class="container mx-auto px-6 py-16">
+            <!-- บทคัดย่อ -->
+            <section class="mb-16">
+            <h2 class="text-4xl font-bold mb-12 text-gray-800 text-center">
+                ขั้นตอนการดำเนินการ
+                <div class="h-1 w-24 bg-blue-500 mx-auto mt-4"></div>
+            </h2>
+    
+            <div class="timeline-container">
+                <!-- การระบุปัญหา -->
+                <div class="timeline-item">
+                    <div class="step-number"></div>
+                    <div class="procedure-card">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-600">การระบุปัญหา</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            เราเริ่มต้นด้วยการศึกษาปัญหาที่พบบ่อยในการดูแลต้นไม้ โดยมุ่งเน้นไปที่การรดน้ำที่ไม่สม่ำเสมอซึ่งเกิดจากการขาดข้อมูลเกี่ยวกับระดับความชื้นในดิน ซึ่งส่งผลต่อสุขภาพของต้นไม้โดยตรง โดยเฉพาะสำหรับผู้ที่มีตารางเวลาการทำงานที่แน่นและไม่สามารถดูแลต้นไม้ได้อย่างสม่ำเสมอ
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- การวางแผนการแก้ปัญหา -->
+                <div class="timeline-item">
+                    <div class="step-number"></div>
+                    <div class="procedure-card">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-600">การวางแผนการแก้ปัญหา</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            หลังจากเข้าใจปัญหา เราวางแผนพัฒนาระบบที่ใช้บอร์ด Arduino และเซนเซอร์ตรวจวัดความชื้นในดิน โดยมีเป้าหมายในการสร้างอุปกรณ์ที่สามารถตรวจสอบความชื้นในดินได้อย่างแม่นยำ พร้อมกับแจ้งเตือนผู้ใช้เมื่อต้นไม้ต้องการน้ำ
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- การสร้างต้นแบบ -->
+                <div class="timeline-item">
+                    <div class="step-number"></div>
+                    <div class="procedure-card">
+                        <h3 class="text-2xl font-semibold mb-4 text-purple-600">การสร้างต้นแบบ</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            ขั้นตอนต่อมา เราได้ทำการประกอบอุปกรณ์ที่จำเป็น ได้แก่ บอร์ด Arduino เซนเซอร์วัดความชื้น และอุปกรณ์อิเล็กทรอนิกส์อื่น ๆ พร้อมเชื่อมต่อและทดสอบวงจรเบื้องต้นเพื่อให้แน่ใจว่าอุปกรณ์ทำงานได้ตามที่ต้องการ
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- การเขียนโค้ดและการทดสอบ -->
+                <div class="timeline-item">
+                    <div class="step-number"></div>
+                    <div class="procedure-card">
+                        <h3 class="text-2xl font-semibold mb-4 text-indigo-600">การเขียนโค้ดและการทดสอบ</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            เมื่อฮาร์ดแวร์พร้อม เราเขียนโค้ดเพื่อให้ Arduino สามารถอ่านค่าความชื้นและส่งการแจ้งเตือนได้ ขั้นตอนนี้รวมถึงการปรับค่าความชื้นให้เหมาะสมกับสภาพดินและสิ่งแวดล้อมต่าง ๆ เพื่อให้ค่าที่ได้มีความเสถียรและสอดคล้องกับสภาพจริง
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- การแก้ไขปัญหา -->
+                <div class="timeline-item">
+                    <div class="step-number"></div>
+                    <div class="procedure-card">
+                        <h3 class="text-2xl font-semibold mb-4 text-red-600">การแก้ไขปัญหา</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            เราพบปัญหาความไวของเซนเซอร์ที่ทำให้การอ่านค่าไม่แม่นยำ เพื่อแก้ไข เราได้ปรับตำแหน่งเซนเซอร์และปรับแต่งโค้ดเพิ่มเติม จนกระทั่งได้ค่าความชื้นที่เสถียรและเชื่อถือได้
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
         </div>
+                    <!-- Features Section -->
+    <section class="mb-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">การทำงานของระบบ</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">ตรวจสอบสภาพแวดล้อม</h3>
+                    <p class="text-gray-600">ตรวจเช็คอุณหภูมิและความชื้นในดินผ่าน temperature sensor</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">ระบบรดน้ำอัตโนมัติ</h3>
+                    <p class="text-gray-600">ควบคุมการให้น้ำอัตโนมัติตามค่าความชื้นที่วัดได้</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">ระบบระบายอากาศ</h3>
+                    <p class="text-gray-600">ควบคุมพัดลมระบายอากาศตามอุณหภูมิที่วัดได้</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">การแจ้งเตือน</h3>
+                    <p class="text-gray-600">ส่งการแจ้งเตือนเมื่อค่าต่างๆ ผิดปกติ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 text-gray-800">อุปกรณ์ของระบบ</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Static Equipment -->
+                        <div class="equipment-box">
+                            <img src="pic/d816cfc7-d5c2-417e-aeeb-dc1f431a0885.jfif" alt="Pump" class="w-full h-64 object-cover rounded-lg mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Project</h3>
+                            <p class="text-gray-600">ภาพ Project</p>
+                        </div>
+            
+                        <!-- Changing Equipment - Dynamic Content -->
+                        <div class="equipment-box">
+                            <img id="changing-image" src="pic/esp32.jfif" alt="Dynamic Equipment" class="w-full h-64 object-cover rounded-lg mb-4">
+                            <h3 id="changing-text" class="text-xl font-semibold mb-2">ESP32</h3>
+                            <p class="text-gray-600">อุปกรณ์ที่ใช้</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <script>
+                const images = [
+                    'pic/esp32.jfif',
+                    'pic/fan.jfif',
+                    'pic/Soil moisture.jfif',
+                    'pic/light_sen.jfif',
+                    'pic/temper.jfif',
+                    'pic/adapter.jfif'
+                ];
+            
+                const texts = [
+                    'ESP32',
+                    'Fans',
+                    'Soil moisture',
+                    'Light sensor',
+                    'Temperature sensor',
+                    'Adapter'
+                ];
+            
+                let currentIndex = 0;
+                const imageElement = document.getElementById('changing-image');
+                const textElement = document.getElementById('changing-text');
+            
+                function changeContent() {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    imageElement.src = images[currentIndex];
+                    textElement.textContent = texts[currentIndex];
+                }
+            
+                setInterval(changeContent, 3000); // เปลี่ยนภาพและข้อความทุก ๆ 3 วินาที
+            </script>
+
+                
+
+        <!-- Team Section -->
+        <section id="about-us" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">About Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="team-member text-center">
+                    <img src="pic/guide.jpg" alt="Teerati Thanyapitaya" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold">Teerati Thanyapitaya</h3>
+                    <p class="text-gray-600">66070273</p>
+                </div>
+                
+                <div class="team-member text-center">
+                    <img src="pic/D.jpg" alt="Atibodee Kuiprasert" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold">Atibodee Kuiprasert</h3>
+                    <p class="text-gray-600">66070216</p>
+                </div>
+                
+                <div class="team-member text-center">
+                    <img src="pic/Arucha.jpg" alt="Arucha Khematharonon" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold">Arucha Khematharonon</h3>
+                    <p class="text-gray-600">66070220</p>
+                </div>
+            </div>
+        </section>
     </div>
+    
 
-
-
-<style>
-    .container {
-        display: flex;
-        flex-direction: column; /* ใช้แนวตั้งเพื่อจัดกล่องในแนวตั้ง */
-        align-items: center; /* จัดกึ่งกลางในแนวนอน */
-        justify-content: center; /* จัดกึ่งกลางในแนวตั้ง */
-        margin: auto; /* ทำให้กล่องอยู่กลางหน้า */
-        width: 400%; /* ขนาดของกล่อง */
-        max-width: 400px; /* ขนาดสูงสุดของกล่อง */
-        padding: 20px;
-        border: 2px solid #ccc;
-        border-radius: 10px;
-        background-color: #fff; /* สีพื้นหลังของกล่อง */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงา */
-        text-align: center; /* จัดข้อความให้กึ่งกลาง */
-    }
-    .container_sub {
-    margin-left: 20px; /* เพิ่มระยะห่างระหว่างกล่อง */
-}
-.container-wrapper {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: flex-start;
-}
-    .image-container {
-        width: 100%; /* ให้ภาพใช้ขนาดเต็มของกล่อง */
-        margin-bottom: 20px; /* ระยะห่างระหว่างภาพและข้อความ */
-    }
-
-    .image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* ปรับขนาดรูปให้พอดีกับกล่อง */
-    border-radius: 8px;
-}
-
-    .text-container {
-        max-width: 100%; /* ทำให้ข้อความไม่เกินขนาดกล่อง */
-    }
-</style>
-
-<script>
-    const images = [
-        'pic/esp32.jfif',
-        'pic/fan.jfif',
-        'pic/Soil moisture.jfif',
-        'pic/light_sen.jfif',
-        'pic/temper.jfif',
-        'pic/adapter.jfif'
-    ];
-
-    const texts = [
-        'ESP32',
-        'Fans',
-        'Soil moisture',
-        'lightsenor',
-        'temperature sensor',
-        'adapter'
-    ];
-
-    let currentIndex = 0;
-    const imageElement = document.getElementById('changing-image');
-    const textElement = document.getElementById('changing-text');
-
-    function changeContent() {
-        currentIndex = (currentIndex + 1) % images.length;
-        imageElement.src = images[currentIndex];
-        textElement.textContent = texts[currentIndex];
-    }
-
-    setInterval(changeContent, 3000); // เปลี่ยนภาพและข้อความทุก ๆ 3 วินาที
-</script>
-<div class="about-container">
-    <h1 class="about-title">About Us</h1>
-    <div class="team-section">
-        <div class="team-member">
-            <img src="pic/guide.jpg" alt="Teerati Thanyapitaya">
-            <h3>Teerati Thanyapitaya</h3>
-            <p>66070273</p>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2024 Smart Farm IoT Project</p>
         </div>
-        <div class="team-member">
-            <img src="pic/D.jpg" alt="Atibodee Kuiprasert">
-            <h3>Atibodee Kuiprasert</h3>
-            <p>66070216</p>
-        </div>
-        <div class="team-member">
-            <img src="pic/Arucha.jpg" alt="Arucha Khematharonon">
-            <h3>Arucha Khematharonon</h3>
-            <p>66070220</p>
-        </div>
-    </div>
-</div>
-
-
+    </footer>
 </body>
 </html>
