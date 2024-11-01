@@ -16,7 +16,6 @@ This project aims to revolutionize farming efficiency by developing a **smart fa
 - **YouTube Presentation Video:** [Watch Here](https://youtu.be/5cPVaHq3f_Q?si=8h36v-jrsYC8BtkK)
 - **Poster:**  
   ![Project Poster](https://github.com/user-attachments/assets/1a5be13c-35c3-4712-a77b-46c04bf8d186)
-- **Additional Presentation Clip:** [View Clip](https://youtu.be/XyI_eSjLw_w)
 
 ---
 
