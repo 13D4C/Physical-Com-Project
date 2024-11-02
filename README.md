@@ -20,6 +20,6 @@ This project aims to revolutionize farming efficiency by developing a **smart fa
 ---
 
 ### Project Members
-- **66070216**: Athibodi Kuiprasert
-- **66070220**: Arucha Khemtharannon
-- **66070273**: Theeratee Thunyapittaya
+- **66070216**: Atibodee Kuiprasert
+- **66070220**: Arucha Khematharonon
+- **66070273**: Teerati Thanyapitaya
